@@ -1,0 +1,86 @@
+body {
+	background: #ECEFF1;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.main-message-box {
+	margin: 20px;
+	background: white;
+	padding: 20px;
+	border-radius: 3px;
+}
+
+.message-col {
+	padding: 20px;
+}
+
+.message-box {
+	background: white;
+	padding: 20px;
+	border-radius: 3px;
+}
+
+.main-title  {
+	color: #ffa100;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0 0 8px;
+}
+
+.loading-text {
+	line-height: 140%;
+	margin: 16px 0 24px;
+	font-size: 14px;
+}
+
+.common-text {
+	line-height: 140%;
+	margin: 16px 0 24px;
+	font-size: 14px;
+}
+
+.error-text {
+	line-height: 140%;
+	margin: 16px 0 24px;
+	font-size: 14px;
+}
+
+.loading-spinner-box {
+	float: right;
+}
+
+.card-box {
+	margin: 20px;
+	width: 124px;
+	height: 178px;
+}
+
+.card-box-border {
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid gray;
+}
+
+.card-box-border-voted {
+	border: 2px solid green;
+	background: green;
+}
+
+.card-box-content {
+	border-radius: 10px;
+}
+
+.card-text {
+	color: white;
+	font-size: 20px;
+	line-height: 178px;
+	text-align: center;
+}
+
+.current-session-main-button {
+	margin-top: 20px;
+}

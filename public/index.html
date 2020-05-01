@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.14.2/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.14.2/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  <script src="/scripts/main.js"></script>
+  <script src="/scripts/common.js"></script>
+  <script src="/scripts/session.js"></script>
+  <script src="/scripts/createSession.js"></script>
+  <script src="/scripts/enterSession.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row main-message-box">
+      <div class="col">
+        <h2 id="main-title" class="main-title text-primary">Bem vindo!</h2>
+        <p id="main-text" class="common-text">Escolha uma das opções abaixo:</p>
+      </div>
+      <div class="col">
+        <div id="loading-spinner" class="loading-spinner-box">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <span id="loading-spinner-message" class="loading-text">Carregando App...</span>
+          <div id="error-message" class="alert alert-danger" role="alert" style="display:none;">
+            Error!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="create-session-box" class="col-lg-6 message-col">
+        <div class="message-box">
+          <h2 class="main-title text-primary">Criar uma nova sessão</h2>
+          <form id="create-session-form" class="needs-validation">
+            <div class="form-group">
+              <label for="sessionName">Nome</label>
+              <input type="text" class="form-control" id="sessionName" required>
+              <div class="invalid-feedback">
+                Preencha um nome para a sua sessão.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sessionDeck">Baralho</label>
+              <select class="custom-select" id="sessionDeck" required>
+                <option selected disabled value="">Choose...</option>
+                <option id="default">Padrão - 0,1/2,1,2,3,5,8,13,20,40,100,?,&#x2615;</option>
+              </select>
+              <div class="invalid-feedback">
+                Escolha o baralho.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar</button>
+          </form>
+        </div>
+      </div>
+      <div id="enter-session-box" class="col-lg-6 message-col">
+        <div class="message-box">
+          <h2 class="main-title text-primary">Entrar na sessão</h2>
+          <form id="enter-session-form" class="needs-validation">
+            <div class="form-group">
+              <label for="enterSessionId">Id da sessão</label>
+              <input type="text" class="form-control" id="enterSessionId" required>
+              <div class="invalid-feedback">
+                Preencha o id da sessão que deseja entrar.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userName">Seu nome</label>
+              <input type="text" class="form-control" id="userName" required>
+              <div class="invalid-feedback">
+                Escolha um nome para aparecer na sessão.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
+        </div>
+      </div>
+      <div id="current-session-box" class="col-lg-8 message-col" style="display:none;">
+        <div class="message-box">
+          <h2 id="current-session-box-title" class="main-title text-primary">Baralho</h2>
+          <p id="current-session-main-status" class="common-text"></p>
+          <div id="current-session-deck" class="d-flex flex-wrap"></div>
+          <button id="current-session-main-action" type="button" class="current-session-main-button btn btn-primary">Sair</button>
+          <button id="current-session-second-action" type="button" class="current-session-main-button btn btn-secondary">Voltar para home</button>
+        </div>
+      </div>
+      <div id="summary-session-box" class="col-lg-4 message-col" style="display:none;">
+        <div class="message-box">
+          <h2 class="main-title text-primary">Resumo</h2>
+          <p class="common-text"><span id="session-users"></span> pessoa(s) online</p>
+          <div id="session-users-list" class="session-users-list-box"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
