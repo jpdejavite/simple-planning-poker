@@ -26,7 +26,7 @@ const getCurrentSessionStatus = (session, userId) => {
     return { status: 'Você não votou na sessão ainda', voteFinished: false };
   }
 
-  const usersCount = Object.keys(session.users).length;
+  const usersCount = Object.keys(session.users || {}).length;
   const votesCount = Object.keys(session.votes[session.currentVote].users).length;
   const missingVotes = usersCount - votesCount;
   if (missingVotes === 0) {
@@ -75,7 +75,7 @@ const showCurrentSessionData = async (session, sessionId, userId) => {
       if (session.currentVote && session.votes && session.votes[session.currentVote] && session.votes[session.currentVote].users) {
         currentUserVote = session.votes[session.currentVote].users[uid] || null;
       }
-      userList.push(`<p class="common-text">${session.users[uid]} - <b>${voteFinished ? currentUserVote : (currentUserVote ? 'já votou' : 'aguardando voto')}</b></p>`);
+      userList.push(`<p class="common-text">${session.users[uid]} - <b>${voteFinished ? (currentUserVote || 'aguardando nova votação') : (currentUserVote ? 'já votou' : 'aguardando voto')}</b></p>`);
     });
     document.getElementById('session-users-list').innerHTML = userList.join('');
     document.getElementById('session-users').innerHTML = session.users ? Object.keys(session.users).length : 0;
